@@ -40,6 +40,10 @@ ssize_t mq_receive (mqd_t mqdes, char *msg_ptr, size_t msg_len, unsigned int *ms
 - Or we can use `mq_timedsend()` and `mq_timedreceive()` which takes parameter `abs_timeout`. It will block read/write till `abs_timeout`
 - Most useful way is using `mq_notify()`. it can be used for requesting asynchronous notification when message is sent.
 
+## System V message queues
+
+
+
 ## References
 
 [[1] https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/MQueues.html](https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/MQueues.html)
