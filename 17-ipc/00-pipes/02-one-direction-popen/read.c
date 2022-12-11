@@ -20,5 +20,7 @@ int main(int argc, char const *argv[]) {
   while(fgets(buffer, 1024, fp) != NULL) {
     fprintf(stdout, "%s", buffer);
   }
+
+  pclose(fp);
   return 0;
 }

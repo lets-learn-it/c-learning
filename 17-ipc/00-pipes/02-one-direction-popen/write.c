@@ -6,6 +6,7 @@
  * Will run command i.e. grap which will find demo in inputed text to parent process
  * parent process will give that text to child. child will find lines with 'demo'
  * and put it in file demo.txt
+ * when you want to close stdin, use ctrl + d
  ***********************************************************************************/
 
 int main(int argc, char const *argv[]) {
@@ -25,5 +26,7 @@ int main(int argc, char const *argv[]) {
       perror("fputs");
     }
   }
+
+  pclose(fp);
   return 0;
 }

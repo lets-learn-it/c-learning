@@ -8,6 +8,11 @@
   >Setting up regions in both processes is expensive operation in terms of execution time.
 - memory mapped files create persistent IPC. in case of pipes, message wont be available when any process reads it.
 
+### Disadvantages of bypassing kernel's buffer cache
+
+- If 2 processes access same file using `read()` function, kernel's buffer will read file from disk once and copy it to user space of those respective processes.
+- So second read will be slower in case of memory mapped files because there is no kernel's buffer.
+
 ## C library functions
 
 ```c
@@ -40,6 +45,8 @@ In `flags` parameter, region can be designated as private (`MAP_PRIVATE`) or sha
 ## Mapping
 
 A file is mapped in multiples of the page size.  For a file that is not a multiple of the page size, the remaining bytes in the partial page at the end of the mapping are zeroed when mapped, and modifications to that region are not written out to the file.
+
+
 
 ## References
 
