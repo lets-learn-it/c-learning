@@ -6,6 +6,7 @@
 #include <fcntl.h>   /* for O_* constants*/
 
 #define SHARED_SIZE 1024
+#define DETACH 1
 
 int main(int argc, char const *argv[]) {
   void *shared_memory;
@@ -29,12 +30,15 @@ int main(int argc, char const *argv[]) {
 
   strcpy(buffer, shared_memory);
 
-  fprintf(stdout, "Data from shared memory: %s", buffer);
+  fprintf(stdout, "Data from shared memory: %s\n", buffer);
 
   munmap(shared_memory, SHARED_SIZE);
   close(shmfd);
 
   // unlink shared memory 
-  // shm_unlink("/shm_demo")
+  if(DETACH && shm_unlink("/shm_demo") == 0) {
+    fprintf(stdout, "destroyed successfully...\n");
+  }
+  
   return 0;
 }

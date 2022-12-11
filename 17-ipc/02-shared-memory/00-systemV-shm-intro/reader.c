@@ -3,6 +3,9 @@
 #include <unistd.h>
 #include <sys/shm.h>
 #include <string.h>
+#include <sys/ipc.h>
+
+#define DETACH 0
 
 int main(int argc, char const *argv[]) {
   void *shared_memory;
@@ -25,6 +28,17 @@ int main(int argc, char const *argv[]) {
 
   strcpy(buffer, shared_memory);
 
-  fprintf(stdout, "Data from shared memory: %s", buffer);
+  fprintf(stdout, "Data from shared memory: %s\n", buffer);
+
+  // detaching will not remove sharable memory
+  // it will only detach that memory from calling process
+  if(DETACH && shmdt(shared_memory) == 0) {
+    fprintf(stdout, "detached successfully...\n");
+  }
+
+  // remove shared memory
+  if(shmctl(shmid, IPC_RMID, NULL) == 0) {
+    fprintf(stdout, "Destroyed shared memory...");
+  }
   return 0;
 }

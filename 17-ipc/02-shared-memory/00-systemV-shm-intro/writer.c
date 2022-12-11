@@ -24,5 +24,10 @@ int main(int argc, char const *argv[]) {
   fprintf(stdout, "Shared memory attached at %p\n", shared_memory);
   
   strcpy(shared_memory, data);
+
+  // detach shared memory
+  // if(shmdt(shared_memory) == -1) {
+  //   perror("shmdt");
+  // }
   return 0;
 }
