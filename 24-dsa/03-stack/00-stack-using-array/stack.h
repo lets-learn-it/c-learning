@@ -1,4 +1,7 @@
 
+#ifndef __STACK_H__
+#define __STACK_H__
+
 typedef struct stack_ {
   int top;
   int size;
@@ -12,3 +15,5 @@ typedef struct stack_ {
 
 int initialize (stack *s, int size);
 int destroy (stack *self);
+
+#endif

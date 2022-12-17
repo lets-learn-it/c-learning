@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int push (struct stack_ *self, void *item) {
-  if (self->top >= self->size) return -1;
+  if (self->top >= self->size - 1) return -1;
   self->top++;
   self->arr[self->top] = item;
   return 0;
@@ -16,6 +16,7 @@ void* pop (struct stack_ *self) {
 }
 
 void* stacktop (struct stack_ *self) {
+  if (self->top < 0) return NULL;
   return self->arr[self->top];
 }
 
