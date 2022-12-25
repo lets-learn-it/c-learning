@@ -18,7 +18,19 @@
     "*.tcc": "c",
     "typeinfo": "c",
     "ifaddrs.h": "c",
-    "pthread.h": "c"
+    "pthread.h": "c",
+    "string_view": "c",
+    "functional": "c",
+    "mqueue.h": "c",
+    "queue.h": "c",
+    "socket.h": "c",
+    "stat.h": "c",
+    "stdlib.h": "c",
+    "string.h": "c",
+    "fuse.h": "c",
+    "stack.h": "c",
+    "signal.h": "c",
+    "ds.h": "c"
   },
   "editor.tabSize": 2,
   "code-runner.executorMapByFileExtension": {
@@ -107,5 +119,9 @@
     "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
     "sml": "cd $dir && sml $fileName"
   },
-  "editor.detectIndentation": false
+  "editor.detectIndentation": false,
+  "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
+  "C_Cpp.default.includePath": [
+    "25-libraries/lib"
+  ]
 }
