@@ -4,6 +4,7 @@ CC=gcc
 CCFLAGS=-c -Wall -O3
 EXEC=app.out
 EXECFLAGS=-d
+INCLPATHS=./lib
 
 none:
 	@echo "Default rule is not available.\nUse either static/dynamic. Stop."
@@ -19,7 +20,7 @@ dynamic: clean *.o
 
 *.o: *.c
 	@echo "compiling..."
-	$(CC) $(CCFLAGS) *.c
+	$(CC) -I$(INCLPATHS) $(CCFLAGS) *.c
 	@echo "compiled!!"
 
 clean:

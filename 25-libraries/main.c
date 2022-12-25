@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "./lib/ds.h"
+#include "ds.h"         /* make sure add includepath "25-libraries/lib" */
 
 typedef struct Person {
   int age;
@@ -42,7 +42,7 @@ int main(int argc, char const *argv[]) {
 
   ds_node *node2 = create_node((void *) get_person("XYZ", 52));
   list.add_last(&list, node2);
-  
+
   ds_node *node1 = create_node((void *) get_person("Parikshit", 25));
   list.add_first(&list, node1);
 
