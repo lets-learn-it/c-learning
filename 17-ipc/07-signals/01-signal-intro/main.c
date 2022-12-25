@@ -35,6 +35,7 @@ int main(int argc, char const *argv[]) {
     fprintf(stdout, "Signal Sent. Exiting...\n");
     exit(0);
   } else {
+    // wait for signal
     pause();
   }
   return 0;
