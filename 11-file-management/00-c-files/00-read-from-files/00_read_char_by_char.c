@@ -2,7 +2,8 @@
 #include <stdlib.h>
 
 /***************************************************
- * Count vowels in text files  
+ * Count vowels in text files
+ * ./a.out  ./../resources/shivaji.txt
  ***************************************************/
 
 int is_vowel(char c) {

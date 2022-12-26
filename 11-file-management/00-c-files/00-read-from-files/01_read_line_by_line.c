@@ -6,14 +6,14 @@
 
 /***************************************************
  * Give Line Numbers & underline search string
- * ./a.out  ./resources/shivaji.txt Shivaji
+ * ./a.out  ./../resources/shivaji.txt Shivaji
  ***************************************************/
 
 int line_number = 1;
 
 int main(int argc, char const *argv[]) {
   if(argc < 3) {
-    fprintf(stderr, "Filename not provided...\n");
+    fprintf(stderr, "Filename or search string not provided...\n");
     return EXIT_FAILURE;
   }
 
@@ -34,7 +34,7 @@ int main(int argc, char const *argv[]) {
     pch = strstr (buffer, search);
 
     if (pch != NULL) {
-      fprintf(stdout, "%03d | ", line_number);
+      fprintf(stdout, "%03d █ ", line_number);
       point = buffer;
       while (pch) {
         fprintf(stdout, "%.*s\033[4m%.*s\033[24m", (int) (pch - point), point, (int) strlen(search), pch);
@@ -44,7 +44,7 @@ int main(int argc, char const *argv[]) {
       fprintf(stdout, "%s", point);
     
     } else {
-      fprintf(stdout, "%03d | %s", line_number, buffer);
+      fprintf(stdout, "%03d │ %s", line_number, buffer);
     }
     line_number ++;
   }
