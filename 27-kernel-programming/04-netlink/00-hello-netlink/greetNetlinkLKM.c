@@ -10,6 +10,7 @@
 void netlink_recv_msg_fn(struct sk_buff *skb_in);
 
 static struct netlink_kernel_cfg cfg = {
+  // this function will be called when there is msg in socket buffer
   .input = netlink_recv_msg_fn,
 };
 
@@ -36,6 +37,7 @@ void netlink_recv_msg_fn(struct sk_buff *skb_in) {
 
   nlh_recv = (struct nlmsghdr*) (skb_in->data);
 
+  // print headers using our function
   nlmsg_dump(nlh_recv);
 
   user_space_process_port_id = nlh_recv->nlmsg_pid;
@@ -56,14 +58,17 @@ void netlink_recv_msg_fn(struct sk_buff *skb_in) {
     // create response like sprintf
     snprintf(kernel_reply, sizeof(kernel_reply), "Msg from Process %d has been processed by kernel", nlh_recv->nlmsg_pid);
 
-    // create new socket buffer (memory allocation, need to free)
+    // Allocate a new netlink message (memory allocation, need to free)
     skb_out = nlmsg_new(sizeof(kernel_reply), 0);
 
+    // Add a new netlink message to an skb
     nlh_reply = nlmsg_put(skb_out, 0, nlh_recv->nlmsg_seq, NLMSG_DONE, sizeof(kernel_reply), 0);
 
+    // nlmsg_data returns head of message payload
     strncpy(nlmsg_data(nlh_reply), kernel_reply, sizeof(kernel_reply));
 
     // if success, will free skb_out
+    // sends msg to netlink portid of the destination socket
     res = nlmsg_unicast(nl_sk, skb_out, user_space_process_port_id);
 
     if (res < 0) {

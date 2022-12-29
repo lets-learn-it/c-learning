@@ -9,9 +9,13 @@
 #include <pthread.h>
 #include <linux/version.h>
 
-#define MAX_PAYLOAD 256
+#define MAX_PAYLOAD 2048
 #define NETLINK_TEST_PROTOCOL 31
 #define NLMSG_GREET 1
+
+typedef struct thread_arg_{
+  int sock_fd;
+} thread_arg_t;
 
 int send_netlink_msg_to_kernel(int sock_fd, char *msg, uint32_t msg_size, int nlmsg_type, uint16_t flags) {
   struct sockaddr_nl dest_addr; // nl mean netlink
@@ -62,6 +66,70 @@ static void greet_kernel(int sock_fd, char *msg, uint32_t msg_len) {
   send_netlink_msg_to_kernel(sock_fd, msg, msg_len, NLMSG_GREET, NLM_F_ACK);
 }
 
+static void * _start_kernel_data_receiver_thread(void *arg){
+
+  int rc = 0;
+  struct iovec iov;
+  struct nlmsghdr *nlh_recv = NULL;
+  static struct msghdr outermsghdr;
+  int sock_fd = 0;
+
+  // get socket fd which was passed in args
+  thread_arg_t *thread_arg = (thread_arg_t *)arg;
+  sock_fd = thread_arg->sock_fd;
+
+  /*Take a new buffer to recv data from kernel*/
+  nlh_recv = (struct nlmsghdr *)calloc(1, NLMSG_HDRLEN + NLMSG_SPACE(MAX_PAYLOAD));
+  
+  do{
+    /* Since, USA is receiving the msg from KS, so, just leave all
+      * fields of nlmsghdr empty. they shall be filled by kernel
+      * while delivering the msg to USA*/
+    memset(nlh_recv, 0, NLMSG_HDRLEN + NLMSG_SPACE(MAX_PAYLOAD));
+    
+    iov.iov_base = (void *)nlh_recv;
+    iov.iov_len = NLMSG_HDRLEN + NLMSG_SPACE(MAX_PAYLOAD);
+
+    memset(&outermsghdr, 0, sizeof(struct msghdr));
+    
+    outermsghdr.msg_iov     = &iov;
+    outermsghdr.msg_name    = NULL;
+    outermsghdr.msg_iovlen  = 1;
+    outermsghdr.msg_namelen = 0;
+
+    /* Read message from kernel. Its a blocking system call 
+      * Application execuation is suspended at this point 
+      * and would not resume until it receives linux kernel
+      * msg. We can configure recvmsg() to not to block, 
+      * but lets use it in blocking mode for now */
+
+    rc = recvmsg(sock_fd, &outermsghdr, 0);
+
+    /* We have successfully received msg from linux kernel*/
+    /* print the msg from kernel. kernel msg shall be stored 
+      * in outermsghdr.msg_iov->iov_base
+      * in same format : that is Netlink hdr followed by payload data*/
+    nlh_recv = outermsghdr.msg_iov->iov_base;
+    char *payload = NLMSG_DATA(nlh_recv);
+
+    printf("Received Netlink msg from kernel, bytes recvd = %d\n", rc);
+    printf("msg recvd from kernel = %s\n", payload);
+  } while(1);
+}
+
+void start_kernel_data_receiver_thread(thread_arg_t *thread_arg){
+
+    pthread_attr_t attr;
+    pthread_t recv_pkt_thread;
+
+    pthread_attr_init(&attr);
+    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
+
+    pthread_create(&recv_pkt_thread, &attr,
+            &_start_kernel_data_receiver_thread,
+            (void *)thread_arg);
+}
+
 int main(int argc, char const *argv[]) {
   int choice;
   int sock_fd;
@@ -86,8 +154,13 @@ int main(int argc, char const *argv[]) {
     return EXIT_FAILURE;
   }
 
+  // for receiving data, start new thread
+  thread_arg_t thread_arg;
+  thread_arg.sock_fd = sock_fd;
+  start_kernel_data_receiver_thread(&thread_arg);
+
   while(1) {
-    printf("Menu: \n1. Greet Kernel\n2. Exit");
+    printf("Menu: \n1. Greet Kernel\n2. Exit\n");
     scanf("%d\n", &choice);
 
     switch (choice) {
