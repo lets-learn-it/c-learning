@@ -91,6 +91,30 @@ skb_in->data;
 skb_in->len;
 ```
 
+## userspace `bind`
+
+```c
+// sock_fd from above
+// addr is of type struct sockaddr_nl
+bind(sock_fd, (struct sockaddr *) &addr, sizeof(addr);
+```
+
+### Address Formats
+
+```c
+struct sockaddr_nl {
+  sa_family_t     nl_family;  /* AF_NETLINK */
+  unsigned short  nl_pad;     /* Zero. */
+  pid_t           nl_pid;     /* Port ID. */
+  __u32           nl_groups;  /* Multicast groups mask. */
+};
+```
+
+- **nl_pid**: it is like *port*. it should be unique. If specified 0, kernel takes care of assigning it.
+- **nl_groups**: bit mask with every bit representing a netlink group number. Each netlink family has a set of 32 multicast groups. This should be **set to a bit mask of the groups which it wishes to listen to.** The default value for this field is zero which means that no multicasts will be received.
+  >Only processes with an effective UID of 0 or the `CAP_NET_ADMIN` capability may send or listen to a netlink multicast group.
+
+
 ## References
 
 [[01] https://man7.org/linux/man-pages/man7/netlink.7.html](https://man7.org/linux/man-pages/man7/netlink.7.html)

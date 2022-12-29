@@ -149,6 +149,9 @@ int main(int argc, char const *argv[]) {
   src_addr.nl_family = AF_NETLINK;
   src_addr.nl_pid = getpid();
 
+  // nl_groups is 0 because we are not doing broadcast with groups
+  // src_addr.nl_groups = ;
+
   if (bind(sock_fd, (struct sockaddr *) &src_addr, sizeof(src_addr)) == -1) {
     perror("bind");
     return EXIT_FAILURE;
