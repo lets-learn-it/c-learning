@@ -9,12 +9,13 @@ void add_first (struct dll_ *self, dll_node *node) {
   self->head = node;
 }
 
-void print(struct dll_ *self, void (*fn)(void *data)) {
+void print_dll(struct dll_ *self, void (*fn)(void *data)) {
   dll_node *node = self->head;
   while(node != NULL) {
     fn(node->data);
     node = node->next;
   }
+  fprintf(stdout, "\n");
 }
 
 void add_last (struct dll_ *self, dll_node *newNode) {
@@ -31,6 +32,19 @@ void add_next (dll_node *nextTo, dll_node *node) {
   node->prev = nextTo;
 }
 
+int remove_dll_node (dll *self, dll_node *node) {
+  if (node == NULL) return -1;
+
+  if (node->prev != NULL)
+    node->prev->next = node->next;
+  else /* head */
+    self->head = node->next;
+  
+  if (node->next != NULL)
+    node->next->prev = node->prev;
+  return 0;
+}
+
 dll_node * search (struct dll_ *self, void *key, int (*fn)(void *key, void *nodeData)) {
   dll_node *node = self->head;
   while(node != NULL) {
@@ -42,12 +56,13 @@ dll_node * search (struct dll_ *self, void *key, int (*fn)(void *key, void *node
   return NULL;
 }
 
-void initialize(dll *list) {
+void initialize_dll(dll *list) {
   list->add_first = &add_first;
   list->add_last = &add_last;
   list->add_next = &add_next;
-  list->print = &print;
+  list->print = &print_dll;
   list->search = &search;
+  list->remove = &remove_dll_node;
   list->head = NULL;
   list->tail = NULL;
 }

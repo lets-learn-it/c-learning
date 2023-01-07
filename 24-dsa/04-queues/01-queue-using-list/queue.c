@@ -7,11 +7,9 @@ extern int DEBUG;
 void enqueue (struct queue_ *self, queue_node *node) {
   if (DEBUG) fprintf(stderr, "===== Pushing to Queue =====\n");
 
-  if (self->back == NULL || self->front == NULL) {
-    self->back = node;
-    self->front = node;
-  }
-  self->back->next = node;
+  if (self->front == NULL) self->front = node;
+  else self->back->next = node;
+  
   self->back = node;
 }
 
