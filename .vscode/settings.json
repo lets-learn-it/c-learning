@@ -30,7 +30,24 @@
     "fuse.h": "c",
     "stack.h": "c",
     "signal.h": "c",
-    "ds.h": "c"
+    "ds.h": "c",
+    "kernel.h": "c",
+    "const.h": "c",
+    "module.h": "c",
+    "list.h": "c",
+    "bpf.h": "c",
+    "netlink.h": "c",
+    "connector.h": "c",
+    "sock.h": "c",
+    "refcount.h": "c",
+    "audit.h": "c",
+    "nf_tables.h": "c",
+    "sched.h": "c",
+    "inet_diag.h": "c",
+    "types.h": "c",
+    "tcp_states.h": "c",
+    "sock_diag.h": "c",
+    "inet.h": "c"
   },
   "editor.tabSize": 2,
   "code-runner.executorMapByFileExtension": {
@@ -122,6 +139,11 @@
   "editor.detectIndentation": false,
   "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
   "C_Cpp.default.includePath": [
-    "25-libraries/lib"
+    "25-libraries/lib",
+    "24-dsa/02-linked-lists/01-doubly-linked-list",
+    "24-dsa/04-queues/01-queue-using-list",
+    "/usr/src/linux-headers-5.15.0-53-generic/include/",
+    "/usr/src/linux-headers-5.15.0-53-generic/arch/x86/include/",
+    "/usr/src/linux-headers-5.15.0-53-generic/arch/x86/include/generated/"
   ]
 }
