@@ -1,0 +1,159 @@
+<mxfile host="65bd71144e">
+    <diagram id="Sb5W0-xr8jHOGaNG5LX6" name="Page-1">
+        <mxGraphModel dx="1476" dy="1775" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="44" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f9f7ed;strokeColor=#36393d;" vertex="1" parent="1">
+                    <mxGeometry x="-20" y="-40" width="960" height="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;fontColor=#009999;strokeColor=#009999;" parent="1" source="2" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="कौशल्या" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;fontColor=#009999;labelBackgroundColor=none;" parent="9" vertex="1" connectable="0">
+                    <mxGeometry x="0.2285" y="-4" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;fontColor=#009999;strokeColor=#009999;" parent="1" source="2" target="4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="कौशल्या" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;fontColor=#009999;labelBackgroundColor=none;" parent="11" vertex="1" connectable="0">
+                    <mxGeometry x="0.3153" y="-3" relative="1" as="geometry">
+                        <mxPoint x="1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;fontColor=#009999;strokeColor=#009999;" parent="1" source="2" target="5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="कैकेयी" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;fontColor=#009999;labelBackgroundColor=none;" parent="13" vertex="1" connectable="0">
+                    <mxGeometry x="0.4504" y="-3" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;fontColor=#009999;strokeColor=#009999;" parent="1" source="2" target="6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="सुमित्रा" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;fontColor=#009999;labelBackgroundColor=none;" parent="15" vertex="1" connectable="0">
+                    <mxGeometry x="0.2167" y="-3" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="16" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;fontColor=#009999;strokeColor=#009999;" parent="1" source="2" target="7" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="सुमित्रा" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;fontColor=#009999;labelBackgroundColor=none;" parent="16" vertex="1" connectable="0">
+                    <mxGeometry x="0.2506" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2" value="दशरथ" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#009999;strokeWidth=3;gradientColor=none;fillColor=#FFFFFF;fontColor=#009999;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="360" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="शांता" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#009999;strokeWidth=3;gradientColor=none;fillColor=#FFFFFF;fontColor=#009999;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry y="120" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;fontColor=#009999;strokeColor=#009999;" parent="1" source="4" target="19" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="माता सीता" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;fontColor=#009999;labelBackgroundColor=none;" parent="21" vertex="1" connectable="0">
+                    <mxGeometry x="0.3022" y="1" relative="1" as="geometry">
+                        <mxPoint x="-1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;fontColor=#009999;strokeColor=#009999;" parent="1" source="4" target="20" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="माता सीता" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;fontColor=#009999;labelBackgroundColor=none;" parent="22" vertex="1" connectable="0">
+                    <mxGeometry x="0.2626" y="2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="श्रीराम" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#009999;strokeWidth=3;gradientColor=none;fillColor=#FFFFFF;fontColor=#009999;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="120" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;fontColor=#009999;strokeColor=#009999;" parent="1" source="5" target="25" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="मांडवी" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;fontColor=#009999;labelBackgroundColor=none;" parent="27" vertex="1" connectable="0">
+                    <mxGeometry x="0.239" y="2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="28" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;fontColor=#009999;strokeColor=#009999;" parent="1" source="5" target="26" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="मांडवी" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;fontColor=#009999;labelBackgroundColor=none;" parent="28" vertex="1" connectable="0">
+                    <mxGeometry x="0.3025" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5" value="भरत" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#009999;strokeWidth=3;gradientColor=none;fillColor=#FFFFFF;fontColor=#009999;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="120" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;fontColor=#009999;strokeColor=#009999;" parent="1" source="6" target="31" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="उर्मिला" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;fontColor=#009999;labelBackgroundColor=none;" parent="33" vertex="1" connectable="0">
+                    <mxGeometry x="0.4228" y="-3" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="34" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;fontColor=#009999;strokeColor=#009999;" parent="1" source="6" target="32" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="उर्मिला" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;fontColor=#009999;labelBackgroundColor=none;" parent="34" vertex="1" connectable="0">
+                    <mxGeometry x="0.3236" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="6" value="लक्ष्मण" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#009999;strokeWidth=3;gradientColor=none;fillColor=#FFFFFF;fontColor=#009999;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="120" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;fontColor=#009999;strokeColor=#009999;" parent="1" source="7" target="37" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="श्रुतकीर्ति" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;fontColor=#009999;labelBackgroundColor=none;" parent="40" vertex="1" connectable="0">
+                    <mxGeometry x="0.3438" relative="1" as="geometry">
+                        <mxPoint y="-1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="41" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=14;fontColor=#009999;strokeColor=#009999;" parent="1" source="7" target="38" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="श्रुतकीर्ति" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;fontColor=#009999;labelBackgroundColor=none;" parent="41" vertex="1" connectable="0">
+                    <mxGeometry x="0.4634" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="शत्रुघ्न" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#009999;strokeWidth=3;gradientColor=none;fillColor=#FFFFFF;fontColor=#009999;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="780" y="120" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="लव" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#009999;strokeWidth=3;gradientColor=none;fillColor=#FFFFFF;fontColor=#009999;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="240" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="कुश" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#009999;strokeWidth=3;gradientColor=none;fillColor=#FFFFFF;fontColor=#009999;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="240" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="तक्ष" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#009999;strokeWidth=3;gradientColor=none;fillColor=#FFFFFF;fontColor=#009999;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="240" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="पुष्कल" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#009999;strokeWidth=3;gradientColor=none;fillColor=#FFFFFF;fontColor=#009999;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="240" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="अंगद" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#009999;strokeWidth=3;gradientColor=none;fillColor=#FFFFFF;fontColor=#009999;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="240" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="चित्रकेतु" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#009999;strokeWidth=3;gradientColor=none;fillColor=#FFFFFF;fontColor=#009999;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="240" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="सुबाहु" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#009999;strokeWidth=3;gradientColor=none;fillColor=#FFFFFF;fontColor=#009999;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="240" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="श्रुतिसेन" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#009999;strokeWidth=3;gradientColor=none;fillColor=#FFFFFF;fontColor=#009999;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="830" y="240" width="80" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
