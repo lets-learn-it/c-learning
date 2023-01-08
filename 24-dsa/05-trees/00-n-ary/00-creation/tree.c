@@ -1,5 +1,6 @@
 #include "tree.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include "queue.h"
 
 void add (struct tree *self, TreeNode *parent, TreeNode *child) {
@@ -13,6 +14,7 @@ void add (struct tree *self, TreeNode *parent, TreeNode *child) {
 
 void print_tree (struct tree *self, void (*fn) (void *data)) {
   queue q;
+  dll_node *dnode;
   TreeNode *tnode;
   initialize(&q);
 
@@ -24,15 +26,45 @@ void print_tree (struct tree *self, void (*fn) (void *data)) {
     /* dequeue */
     tnode = (TreeNode *) q.dequeue(&q)->data;
     fn(tnode->data);
+    printf("\n");
 
-    // /* enqueue all childred */
-    // while ()
+    dnode = tnode->children.head;
+
+    /* enqueue all children */
+    while (dnode != NULL) {
+      /* build queue_node & enqueue */
+      q.enqueue(&q, create_queue_node(dnode->data));
+
+      dnode = dnode->next;
+    }
+  }
+}
+
+void visualize_tree(TreeNode *parent, void (*fn) (void *data), int level) {
+  dll_node *dnode;
+  TreeNode *node;
+
+  for (int i=0;i<level-1;i++) {
+    printf(" │ ");
+  }
+  if (level>0) printf(" ├ ");
+
+  fn(parent->data);
+
+  printf("\n");
+
+  dnode = parent->children.head;
+  while (dnode != NULL) {
+    node = (TreeNode *) dnode->data;
+    visualize_tree(node, fn, level+1);
+    dnode = dnode->next;
   }
 }
 
 void initialize_tree(Tree *tree) {
   tree->add = &add;
   tree->print = &print_tree;
+  tree->visualize = &visualize_tree;
   tree->root = NULL;
 }
 

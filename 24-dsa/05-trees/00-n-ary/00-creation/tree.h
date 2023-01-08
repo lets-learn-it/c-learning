@@ -12,6 +12,7 @@ typedef struct tree {
   /* Operations */
   void (*add) (struct tree *self, TreeNode *parent, TreeNode *node);
   void (*print) (struct tree *self, void (*fn) (void *data));
+  void (*visualize) (TreeNode *parent, void (*fn) (void *data), int level);
 } Tree;
 
 void initialize_tree(Tree *tree);

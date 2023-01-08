@@ -19,6 +19,9 @@ void print_dll(struct dll_ *self, void (*fn)(void *data)) {
 }
 
 void add_last (struct dll_ *self, dll_node *newNode) {
+  /* if head is NULL (empty dll) */
+  if (self->head == NULL) self->head = newNode;
+
   newNode->prev = self->tail;
   if (self->tail)
     self->tail->next = newNode;
