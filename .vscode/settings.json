@@ -145,5 +145,8 @@
     "/usr/src/linux-headers-5.15.0-53-generic/include/",
     "/usr/src/linux-headers-5.15.0-53-generic/arch/x86/include/",
     "/usr/src/linux-headers-5.15.0-53-generic/arch/x86/include/generated/"
-  ]
+  ],
+  "editor.cursorStyle": "underline",
+  "editor.cursorSurroundingLines": 5,
+  "editor.renderWhitespace": "all"
 }
