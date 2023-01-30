@@ -1,4 +1,4 @@
-myString = "I am Parikshit Patil from Kavathe Ekand. Kavathe Ekand is small town in Maharashtra state in India."
+local myString = "I am Parikshit Patil from Kavathe Ekand. Kavathe Ekand is small town in Maharashtra state in India."
 
 print("Length of myString: ", #myString, "\n")
 

@@ -1,4 +1,4 @@
-age = 17
+local age = 17
 
 if age < 16 then
   io.write("You are minor\n")
@@ -7,3 +7,4 @@ elseif age >= 18 then
 else
   io.write("You are stupid. Shut up\n")
 end
+ 

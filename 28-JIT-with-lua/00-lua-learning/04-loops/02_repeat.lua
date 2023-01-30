@@ -1,4 +1,4 @@
-i = 10
+local i = 10
 
 repeat
   print(i)

@@ -1,5 +1,5 @@
-myTable = {}
-myIntegerTable = {}
+local myTable = {}
+local myIntegerTable = {}
 
 -- add key value in table
 myTable["name"] = "Parikshit"

@@ -8,3 +8,8 @@
 - Type `thread` represent independent threads of execution & it is used to implement coroutines. (Not OS threads).
 - Type `table` implements associative arrays (dictionaries in python). These tables can be *heterogeneous*.
 
+## Variable Scope
+
+- variables declared with `local` are local and all other are global variables.
+- scope of local variable can be if statement, loops, function etc
+

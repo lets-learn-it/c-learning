@@ -1,4 +1,4 @@
-i = 1
+local i = 1
 
 while (i <= 10) do
   print(i)

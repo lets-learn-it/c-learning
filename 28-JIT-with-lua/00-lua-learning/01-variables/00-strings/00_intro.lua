@@ -1,20 +1,20 @@
 -- string variable
-name = "parikshit"
-surname = 'patil'
+local name = "parikshit"
+local surname = 'patil'
 
 -- print name & surname
 io.write(name, " ", surname, "\n")
 
 -- concatenate strings using .. operator (double dot)
-fullname = name .. " " .. surname
+local fullname = name .. " " .. surname
 io.write("Fullname: ", fullname, "\n")
 
 -- get length of string
-len = #fullname
+local len = #fullname
 io.write("Length of fullname: ", len, "\n")
 
 -- multiline string
-multilinestring = [[This is 
+local multilinestring = [[This is 
 multiline string. 
   This is]]
 io.write(multilinestring, "\n")
