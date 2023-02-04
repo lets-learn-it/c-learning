@@ -11,7 +11,16 @@ int main(int argc, char const *argv[]) {
   luaL_openlibs(L);
 
   fprintf(stderr, "Loading file...\n");
-  luaL_dofile(L, "/home/parikshit/github/c-learning/28-JIT-with-lua/00-lua-learning/10-embedding-lua-in-c/00-intro/main.lua");
+
+  // load & run file
+  if (luaL_dofile(L, "./main.lua") != LUA_OK) {
+    luaL_error(L, "Error: %s\n", lua_tostring(L, -1));
+  }
+
+  // run string
+  if (luaL_dostring(L, "print('This is fun')") != LUA_OK) {
+    luaL_error(L, "Error: %s\n", lua_tostring(L, -1));
+  }
 
   // Close the Lua state variable
   lua_close(L);
