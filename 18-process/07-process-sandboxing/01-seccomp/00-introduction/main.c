@@ -17,7 +17,7 @@ int main(int argc, char const *argv[]) {
 	}
 
   // add syscall to allow (all other will be denied)
-  if (seccomp_rule_add_exact(seccomp_ctx, SCMP_ACT_ALLOW, 3, 0)) {
+  if (seccomp_rule_add_exact(seccomp_ctx, SCMP_ACT_ALLOW, __NR_open, 0)) {
 		seccomp_release(seccomp_ctx);
 		exit(1);
 	}
