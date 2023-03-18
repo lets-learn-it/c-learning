@@ -47,7 +47,16 @@
     "types.h": "c",
     "tcp_states.h": "c",
     "sock_diag.h": "c",
-    "inet.h": "c"
+    "inet.h": "c",
+    "curl.h": "c",
+    "stdint.h": "c",
+    "math.h": "c",
+    "btree.h": "c",
+    "pid.h": "c",
+    "features.h": "c",
+    "prctl.h": "c",
+    "seccomp.h": "c",
+    "ptrace.h": "c"
   },
   "editor.tabSize": 2,
   "code-runner.executorMapByFileExtension": {
@@ -144,7 +153,9 @@
     "24-dsa/04-queues/01-queue-using-list",
     "/usr/src/linux-headers-5.15.0-53-generic/include/",
     "/usr/src/linux-headers-5.15.0-53-generic/arch/x86/include/",
-    "/usr/src/linux-headers-5.15.0-53-generic/arch/x86/include/generated/"
+    "/usr/src/linux-headers-5.15.0-53-generic/arch/x86/include/generated/",
+    "/usr/include/lua5.3/",
+    "/usr/include/"
   ],
   "editor.cursorStyle": "underline",
   "editor.cursorSurroundingLines": 5,
