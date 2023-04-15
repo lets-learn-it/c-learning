@@ -1,5 +1,7 @@
 
 #define CODE_LENGTH 256
+#define TRUE 1
+#define FALSE 0
 
 enum bytecode {
   IADD,
@@ -17,6 +19,8 @@ enum bytecode {
   GSTORE,
   PRINT,
   POP,
+  CALL,
+  RET,
   HALT
 };
 

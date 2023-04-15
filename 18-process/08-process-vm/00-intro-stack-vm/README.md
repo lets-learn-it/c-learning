@@ -20,9 +20,10 @@ ilt                  integer less than
 ieq
 br addr              branch to address
 brt addr             branch if true
+brf addr             branch if false
 iconst value         push integer constant
 load addr            load local
-global addr          load global variable
+gload addr           load global variable
 store addr
 gstore addr
 print

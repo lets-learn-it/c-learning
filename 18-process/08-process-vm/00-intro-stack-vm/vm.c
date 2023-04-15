@@ -17,6 +17,8 @@ Instruction opcodes[] = {
   {"GSTORE", 1},
   {"PRINT", 0},
   {"POP", 0},
+  {"CALL", 2},
+  {"RET", 0},
   {"HALT", 0}
 };
 
@@ -25,6 +27,7 @@ void init(VM *vm, int *code, int code_length, int main) {
   vm->code_length = code_length;
   vm->ip = main;
   vm->sp = -1;
+  vm->fp = -1;
   vm->trace = 0;
 }
 
@@ -50,7 +53,7 @@ void print(VM *vm, int opcode) {
 
 void cpu(VM *vm) {
   int opcode = vm->code[vm->ip];
-  int addr = 0, v = 0;
+  int addr = 0, v = 0, offset = 0, nargs = 0, rvalue = 0, a = 0, b = 0;
   while(vm->ip < vm->code_length) {
     if (vm->trace) {
       print(vm, opcode);
@@ -67,9 +70,63 @@ void cpu(VM *vm) {
         printf("%d\n", v);
         break;
       case IADD:
-        int b = vm->stack[vm->sp--];
-        int a = vm->stack[vm->sp--];
+        b = vm->stack[vm->sp--];
+        a = vm->stack[vm->sp--];
         vm->stack[++vm->sp] = a + b;
+        break;
+      case ISUB:
+        b = vm->stack[vm->sp--];
+        a = vm->stack[vm->sp--];
+        vm->stack[++vm->sp] = a - b;
+        break;
+      case IMUL:
+        b = vm->stack[vm->sp--];
+        a = vm->stack[vm->sp--];
+        vm->stack[++vm->sp] = a * b;
+        break;
+      case ILT:
+        b = vm->stack[vm->sp--];
+        a = vm->stack[vm->sp--];
+        vm->stack[++vm->sp] = (a < b) ? TRUE : FALSE;
+        break;
+      case IEQ:
+        b = vm->stack[vm->sp--];
+        a = vm->stack[vm->sp--];
+        vm->stack[++vm->sp] = (a == b) ? TRUE : FALSE;
+        break;
+      case BR:
+        vm->ip = vm->code[vm->ip++];
+        break;
+      case BRT:  /* branch true */
+        addr = vm->code[vm->ip++];
+        if ( vm->stack[vm->sp--] == TRUE ) vm->ip = addr;
+        break;
+      case BRF:  /* branch false */
+        addr = vm->code[vm->ip++];
+        if ( vm->stack[vm->sp--] == FALSE ) vm->ip = addr;
+        break;
+      case LOAD:  /* load local/args in function */
+        offset = vm->code[vm->ip++];
+        vm->stack[++vm->sp] = vm->stack[vm->fp + offset];
+        break;
+      case CALL:
+        /* expect all args on stack */
+        addr = vm->code[vm->ip++];       /* target addr of function */
+        nargs = vm->code[vm->ip++];      /* how many args got pushed */
+        vm->stack[++vm->sp] = nargs;     /* save num args */
+        vm->stack[++vm->sp] = vm->fp;    /* save fp (frame pointer) */
+        vm->stack[++vm->sp] = vm->ip;    /* save instruction pointer */
+        vm->fp = vm->sp;                 /* fp points at ret addr on stack */
+        vm->ip = addr;                   /* jump to function */
+        break;
+      case RET:
+        rvalue = vm->stack[vm->sp--];    /* pop return value */
+        vm->sp = vm->fp;                 /* jump over locals to fp which points to sp before call */
+        vm->ip = vm->stack[vm->sp--];    /* pop return address, jump to it */
+        vm->fp = vm->stack[vm->sp--];    /* restore fp */
+        nargs = vm->stack[vm->sp--];     /* how many args to throw away */
+        vm->sp -= nargs;                 /* pop args */
+        vm->stack[++vm->sp] = rvalue;    /* leave result on stack */
         break;
       case GLOAD:
         addr = vm->code[vm->ip++];
