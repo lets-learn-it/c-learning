@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include "BST.h"
+
+int DEBUG = 0;
+
+typedef struct person {
+  int id;
+  char *name;
+} Person;
+
+int compare(void *existing_key, void *new_key) {
+  int *p1 = (int *) existing_key;
+  int *p2 = (int *) new_key;
+  if (*p2 < *p1) return -1;
+  if (*p2 > *p1) return 1;
+  return 0;
+}
+
+void print_person(void *key, void *value) {
+  Person *p = (Person *) value;
+  int *k = (int *) key;
+  printf("Key: %d, Value: Person { id: %d, name: %s }\n", *k, p->id, p->name);
+}
+
+int main() {
+  
+}
+
+int main2() {
+  BST bst;
+  initialize_bst(&bst, &compare);
+
+  Person p1 = {55, "XYZ"};
+  Person p2 = {3, "ABC"};
+  Person p3 = {300, "PQR"};
+
+  BSTNode *n1 = create_bst_node((void *) &p1.id, (void *) &p1);
+  BSTNode *n2 = create_bst_node((void *) &p2.id, (void *) &p2);
+  BSTNode *n3 = create_bst_node((void *) &p3.id, (void *) &p3);
+
+  bst.insert(&bst, n1);
+  bst.insert(&bst, n2);
+  bst.insert(&bst, n3);
+
+  bst.inorder(&bst, &print_person);
+
+
+  return 0;
+}
