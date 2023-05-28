@@ -8,6 +8,7 @@
 #define bool int
 
 enum Position {
+  NONE,
   LEFT,
   RIGHT
 };
@@ -17,6 +18,7 @@ typedef struct bstnode {
   void *value;
   struct bstnode *left;
   struct bstnode *right;
+  struct bstnode *parent;
 } BSTNode;
 
 typedef struct bst {
@@ -29,6 +31,7 @@ typedef struct bst {
   void (*postorder) (struct bst *self, void (*fn) (void *key, void *value));
   void (*inorder) (struct bst *self, void (*fn) (void *key, void *value));
   bool (*find) (struct bst *self, void *key);
+  BSTNode* (*delete_node) (BSTNode *node);
 }BST;
 
 void initialize_bst(BST *bst, int (*compare) (void *old, void *new_data));
