@@ -1,6 +1,7 @@
 #include "BST.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <queue.h>
 
 enum Position get_position(BSTNode *parent, BSTNode *child) {
   if (parent->left == child) return LEFT;
@@ -157,6 +158,33 @@ bool find (struct bst *self, void *key) {
   return false;
 }
 
+int count_nodes (struct bst *self) {
+  queue q;
+  initialize(&q);
+
+  // enqueue root
+  queue_node *node = create_queue_node(self->root);
+  q.enqueue(&q, node);
+
+  int count = 0;
+  BSTNode *bnode;
+
+  while (q.get_front(&q) != NULL) {
+    bnode = (BSTNode *) q.dequeue(&q)->data;
+    if (bnode->left != NULL) {
+      node = create_queue_node(bnode->left);
+      q.enqueue(&q, node);
+    }
+
+    if (bnode->right != NULL) {
+      node = create_queue_node(bnode->right);
+      q.enqueue(&q, node);
+    }
+    count++;
+  }
+  return count;
+}
+
 void initialize_bst(BST *bst, int (*compare) (void *existing_key, void *new_key)) {
   bst->root = NULL;
   bst->compare = compare;
@@ -166,6 +194,7 @@ void initialize_bst(BST *bst, int (*compare) (void *existing_key, void *new_key)
   bst->inorder = &inorder;
   bst->find = &find;
   bst->delete_node = &delete_node;
+  bst->count_nodes = &count_nodes;
 }
 
 BSTNode * create_bst_node(void *key, void *value) {

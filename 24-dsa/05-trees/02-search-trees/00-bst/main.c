@@ -54,10 +54,14 @@ int main() {
 
   bst.inorder(&bst, &print_person);
 
+  printf("Total Nodes: %d\n", bst.count_nodes(&bst));
+
   printf("===========================\n");
 
-  bst.delete_node(n3);
-  bst.inorder(&bst, &print_person);
+  BSTNode *tmp = bst.delete_node(n3);
+  free(tmp);
 
+  bst.inorder(&bst, &print_person);
+  printf("Total Nodes: %d\n", bst.count_nodes(&bst));
   return 0;
 }

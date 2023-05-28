@@ -32,6 +32,7 @@ typedef struct bst {
   void (*inorder) (struct bst *self, void (*fn) (void *key, void *value));
   bool (*find) (struct bst *self, void *key);
   BSTNode* (*delete_node) (BSTNode *node);
+  int (*count_nodes) (struct bst *self);
 }BST;
 
 void initialize_bst(BST *bst, int (*compare) (void *old, void *new_data));
