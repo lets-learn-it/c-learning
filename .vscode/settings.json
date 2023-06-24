@@ -56,7 +56,9 @@
     "features.h": "c",
     "prctl.h": "c",
     "seccomp.h": "c",
-    "ptrace.h": "c"
+    "ptrace.h": "c",
+    "sdl.h": "c",
+    "chip8stack.h": "c"
   },
   "editor.tabSize": 2,
   "code-runner.executorMapByFileExtension": {
@@ -155,7 +157,8 @@
     "/usr/src/linux-headers-5.15.0-53-generic/arch/x86/include/",
     "/usr/src/linux-headers-5.15.0-53-generic/arch/x86/include/generated/",
     "/usr/include/lua5.3/",
-    "/usr/include/"
+    "/usr/include/",
+    "31-emulator/chip-8/include"
   ],
   "editor.cursorStyle": "underline",
   "editor.cursorSurroundingLines": 5,
