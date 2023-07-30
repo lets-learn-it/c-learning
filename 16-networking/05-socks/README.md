@@ -30,7 +30,6 @@
 
 - **CONNECT**
   - `BND.PORT` contains port number that server assigned to connect to target host while `BND.ADDR` contains associated IP address.
-  - It is used by the client to request the SOCKS server to listen on a specific port and wait for an incoming connection from a target host. The server waits for an incoming connection on the specified port and relays data between the client and the target once the connection is established.
 
 - **BIND**
   - It is used in protocols which require client to accept connections from server.

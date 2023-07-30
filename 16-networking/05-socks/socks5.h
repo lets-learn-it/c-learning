@@ -21,6 +21,9 @@ enum socks_atype {
   IPV6       = 0x04
 };
 
-void handle_connection(void *fd);
+void* handle_connection(void* fd);
+int resolve(const char *hostname, struct in_addr **addr) ;
+void pipe_data(int sfd, int tfd);
+int create_tfd(int port, struct in_addr addr);
 
 #endif
