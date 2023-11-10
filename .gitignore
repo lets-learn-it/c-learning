@@ -3,3 +3,9 @@
 *.a
 *.so
 *.exe
+*.cmd
+*.ko
+*.mod
+*.mod.c
+*.symvers
+*.order
