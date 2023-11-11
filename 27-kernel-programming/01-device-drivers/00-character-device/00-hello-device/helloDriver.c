@@ -3,6 +3,8 @@
 #include <linux/fs.h> /* For the character driver support */
 #include <linux/string.h>
 
+#define MAJOR_NUM 222
+
 static char buf[] = "I am Character Device!!!";
 
 ssize_t device_read (struct file *pfile, char __user *buffer, size_t length, loff_t *offset) {
@@ -48,12 +50,25 @@ struct file_operations device_file_operations = {
 };
 
 int hello_device_init_module(void) {
+  int retval;
   printk(KERN_INFO "Hello Device! Driver loaded successfully.\n");
 
   /* Register character device driver with kernel */
-  register_chrdev(222 /* major number (make sure no device already registered */,
-                  "Simple Char Drv" /* Name of Driver */,
-                  &device_file_operations /* File operations structure */);
+  retval = register_chrdev (
+    MAJOR_NUM,                    /* major number (make sure no device already registered */
+    "Simple Char Drv",      /* Name of Driver */
+    &device_file_operations /* File operations structure */
+  );
+
+  if (retval == 0) {
+    printk(KERN_INFO "hello_driver: registered device number. Major: %d, Minor: %d\n", MAJOR_NUM, 0);
+  } else if (retval > 0) {
+    printk(KERN_INFO "hello_driver: registered device number. Major: %d, Minor: %d\n", retval>>20, retval&0xfffff);
+  } else {
+    printk(KERN_ERR "Could not register device number\n");
+    return -1;
+  }
+
   return 0;
 }
 
@@ -61,7 +76,7 @@ void hello_device_cleanup_module(void) {
   printk(KERN_INFO "Goodbye Device \n");
 
   /* unregister device */
-  unregister_chrdev(222, "Simple Char Drv");
+  unregister_chrdev(MAJOR_NUM, "Simple Char Drv");
 }
 
 module_init(hello_device_init_module);
