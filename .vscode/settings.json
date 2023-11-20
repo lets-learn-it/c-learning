@@ -60,7 +60,9 @@
     "sdl.h": "c",
     "chip8stack.h": "c",
     "inttypes.h": "c",
-    "netdb.h": "c"
+    "netdb.h": "c",
+    "init.h": "c",
+    "current.h": "c"
   },
   "editor.tabSize": 2,
   "code-runner.executorMapByFileExtension": {
