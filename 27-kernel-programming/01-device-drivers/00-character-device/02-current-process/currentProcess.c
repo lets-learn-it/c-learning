@@ -6,13 +6,12 @@
 
 #define MAJOR_NUM 222
 
-static char buf[] = "I am Character Device!!!\n";
+static char buf[] = "I am Character Device!!!";
 
 ssize_t device_read (struct file *pfile, char __user *buffer, size_t length, loff_t *offset) {
   int bytes_to_copy = 0;
 
-  /* action is performed on behalf of userspace process. that process can be accessed by global current. */
-  printk(KERN_INFO "Inside the %s function. Pid: %d, Command: %s\n", __FUNCTION__, current->pid, current->comm);
+  printk(KERN_INFO "Inside the %s function. Pid: %d\n", __FUNCTION__, current.pid);
 
   bytes_to_copy = strlen(buf) < length ? strlen(buf) : length;
 
