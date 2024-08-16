@@ -5,11 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-
-struct Message {
-  long msgtype;
-  char buffer[100];
-};
+#include "message.h"
 
 int main(int argc, char const *argv[]) {
   key_t key;
@@ -19,9 +15,10 @@ int main(int argc, char const *argv[]) {
   struct Message message;
 
   // while receiving, receiver will specify this id
-  message.msgtype = 2;
+  message.msgid = 2;
 
-  strcpy(message.buffer, msg);
+  strncpy(message.p.name, msg, sizeof(msg)+1);
+  message.p.age = 25;
 
   if((key = ftok("./queue.txt", 'B')) == -1) {
     perror("ftok");
@@ -33,7 +30,7 @@ int main(int argc, char const *argv[]) {
     exit(1);
   }
 
-  if((nbytes = msgsnd(msgq, &message, strlen(msg) + 1, 0)) == -1) {
+  if((nbytes = msgsnd(msgq, &message, sizeof(person), 0)) == -1) {
     perror("msgsnd");
     exit(1);
   }

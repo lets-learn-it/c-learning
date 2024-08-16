@@ -3,11 +3,7 @@
 #include <sys/msg.h>
 #include <stdlib.h>
 #include <unistd.h>
-
-struct Message {
-  long msgid;
-  char buffer[100];
-};
+#include "message.h"
 
 int main(int argc, char const *argv[]) {
   key_t key;
@@ -28,6 +24,7 @@ int main(int argc, char const *argv[]) {
   // get message of type 2
   msgrcv(msgq, &message, sizeof(message), 2, 0);
 
-  printf("msg id: %ld and msg: %s\n", message.msgid, message.buffer);
+  person p = (person) message.p;
+  printf("msg id: %ld and person: (%s, %d)\n", message.msgid, p.name, p.age);
   return 0;
 }

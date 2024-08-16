@@ -42,7 +42,37 @@ ssize_t mq_receive (mqd_t mqdes, char *msg_ptr, size_t msg_len, unsigned int *ms
 
 ## System V message queues
 
+- use `ipcs` command to list message queues and `ipcrm` to delete them.
 
+```c
+#include <sys/msg.h>
+
+// create message queue
+key = ftok("./queue.txt", 'b');
+msgq = msgget(key, 0666 | IPC_CREAT);
+
+// message
+// message can be any struct as long as first element is long
+struct _person {
+  int age;
+  char name[20];
+}_person;
+struct my_msg {
+  long mtype;
+  person p;
+};
+
+// create message
+struct Message message;
+
+// while receiving, receiver will specify this id
+message.msgid = 2;
+
+strncpy(message.p.name, "Parikshit", sizeof(msg)+1);
+message.p.age = 26;
+
+// send msg
+```
 
 ## References
 
